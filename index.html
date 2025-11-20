@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Route Optimizer </title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ⭐ NAVBAR (selection area) ⭐ -->
+  <header class="topbar glass">
+
+    <!-- Left -->
+    <div class="nav-left">
+      <h1>Smart Route </h1>
+      <p class="subtitle">OpenStreetMap</p>
+    </div>
+
+    <!-- Center -->
+    <div class="nav-center">
+      <input id="place-input" placeholder="Search place or paste lat,lng" />
+      <button id="btn-search">Search</button>
+      <button id="btn-live">GPS</button>
+      <button id="btn-set-start">Start</button>
+      <button id="btn-set-end">End</button>
+      <button id="btn-route">Route</button>
+      <button id="btn-emergency">Emergency</button>
+    </div>
+
+    <!-- Right -->
+    <div class="nav-right">
+      <select id="map-theme">
+         <option value="osm">OSM</option>
+         <option value="carto">Carto</option>
+         <option value="carto-dark">Dark</option>
+         <option value="satellite">Satellite</option>
+</select>
+
+
+      <label class="switch">
+        <input id="toggle-dark" type="checkbox" />
+        <span class="slider"></span>
+      </label>
+
+      <select id="saved-places"></select>
+    </div>
+
+  </header>
+
+
+  <main>
+
+     <aside id="sidebar" class="sidebar glass">
+      <h3>Route Details</h3>
+      <div id="routes-list"></div>
+
+      <h4>Turn-by-turn</h4>
+      <ol id="turns"></ol>
+
+      <h4>Settings & Toggles</h4>
+      <div class="settings">
+        <label><input id="toggle-traffic" type="checkbox" /> Show Traffic</label>
+        <label><input id="toggle-animate" type="checkbox" checked /> Animate</label>
+        <label><input id="toggle-dijkstra" type="checkbox" checked /> Dijkstra</label>
+      </div>
+
+      <h4>Nearest Emergency</h4>
+      <div id="emergency-list"></div>
+
+      <h4>Presentation Stats</h4>
+      <pre id="stats">No route yet</pre>
+    </aside>
+
+    <!-- Map -->
+    <section id="map" class="map"></section>
+
+  </main>
+
+  <!-- Floating action buttons -->
+  <div class="fab">
+    <button id="fab-recenter" title="Re-center map">⤾</button>
+    <button id="fab-reset" title="Reset map">⟲</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="glass footer">
+    <small>Developed By Priyam Kumar</small>
+  </footer>
+
+</div>
+
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Your JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
